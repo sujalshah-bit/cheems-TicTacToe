@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+}
+
+nav ul li{
+    list-style-type: none;   
+}
+
+nav {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 3rem;
+}
+
+.game_container{
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,10vw);
+    grid-template-rows: repeat(3,10vw);
+}
+.box{
+    border: 2px solid black;
+    font-size: 8vw;
+    cursor:pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box:hover{
+    background-color: rgb(238, 231, 244);
+}
+.imgbox img{
+    width: 0;
+    transition: width 1s ease-in;
+}
+
+.game_info{
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    gap: 10px;
+    
+}
+.game_info div span{
+    font-size: 2rem;
+    /* font-weight: 600; */
+}
+.br_0{
+    border-right: 0;
+}
+.bl_0{
+    border-left: 0;
+}
+.bt_0{
+    border-top: 0;
+}
+.bb_0{
+    border-bottom: 0;
+}
+.btn{
+    background-color: rgb(206, 182, 229);
+    color: rgb(33, 33, 33);
+    font-weight: bold;
+    font-size:2.5rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3%;
+    align-self: flex-start;
+}
+
+
+@media (max-width:750px){
+    .container {
+        grid-template-columns: repeat(3,10vw);
+        grid-template-rows: repeat(3,10vw);
+    }
+    .game_container{
+        align-items: center;
+        flex-direction: column;
+    }
+    .game_info{
+        align-items: center;
+        margin-top: 40px;
+    }
+    .game_info h1{
+        font-size:2rem ;
+        align-self: flex-start;
+    }
+    .game_info div span{
+        font-size:1.8rem ;
+        align-self: flex-start;
+
+    }
+    .game_info .btn{
+        font-size:2rem ;
+    }
+
+}
+@media (max-width:450px){
+    .container {
+        grid-template-columns: repeat(3,15vw);
+        grid-template-rows: repeat(3,15vw);
+    }
+}
