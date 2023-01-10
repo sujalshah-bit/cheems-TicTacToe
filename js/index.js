@@ -37,6 +37,7 @@ const checkWin = () =>{
             document.querySelector('.info').innerText = boxText[e[0]].innerText + " Won The Game hue hue hue"
             isGameOver = true
             isGameWin = true
+            turn = ''
             gameover.play();
 
             // adding css after any player wins 
@@ -62,7 +63,7 @@ const checkDraw = () =>{
             count++
             // console.log(e)
         }
-        if(count === 8){
+        if(count === 9){
             document.querySelector('.info').innerText = " Game Draw hue hue hue"
             imgbox.innerHTML = ` <img src="./img/giphy.gif">`
             document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "200px"
