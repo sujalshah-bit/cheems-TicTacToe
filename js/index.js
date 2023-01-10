@@ -2,9 +2,11 @@ let music = new Audio("../music/music.mp3")
 let ting = new Audio("../music/ting.mp3")
 let gameover = new Audio("../music/gameover.mp3")
 let turn = "X"
-isGameWin = false
+let isDraw = false
 let isGameOver = false
 let reset = document.getElementById('reset')
+let imgbox = document.querySelector('.imgbox')
+
 let allBoxTexts = document.getElementsByClassName('box_text')
 console.log(allBoxTexts)
 
@@ -36,11 +38,12 @@ const checkWin = () =>{
 
             document.querySelector('.info').innerText = boxText[e[0]].innerText + " Won The Game hue hue hue"
             isGameOver = true
-            isGameWin = true
             turn = ''
             gameover.play();
 
             // adding css after any player wins 
+
+
             document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "200px"
 
             document.querySelector('.game_info').style.justifyContent = "space-around"
@@ -56,7 +59,6 @@ const checkDraw = () =>{
     const draw = [0, 1, 2, 3, 4, 5, 6, 7, 8,]
     let count = 0
     let allBoxTexts = Array.from(document.getElementsByClassName('box_text'))
-    let imgbox = document.querySelector('.imgbox')
     
     draw.forEach(e =>{
         if(allBoxTexts[e].innerText !== ''){
@@ -65,11 +67,11 @@ const checkDraw = () =>{
         }
         if(count === 9){
             document.querySelector('.info').innerText = " Game Draw hue hue hue"
-            imgbox.innerHTML = ` <img src="./img/giphy.gif">`
+            imgbox.getElementsByTagName("img")[0].setAttribute("src","./img/giphy.gif") 
+
             document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "200px"
-
-           
-
+            isDraw = true
+            isGameOver = true
         }
     })
 
@@ -85,12 +87,15 @@ Array.from(boxes).forEach(element => {
             turn = changeTurn();
             console.log(turn)
             ting.play();
-            checkWin();
+            checkDraw();
+            if(!isDraw){
+
+                checkWin();
+            }
             if(!isGameOver){
                 
                 document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
             }
-            checkDraw();
            
         }
     })
