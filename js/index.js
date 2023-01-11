@@ -87,10 +87,11 @@ Array.from(boxes).forEach(element => {
             turn = changeTurn();
             console.log(turn)
             ting.play();
-            checkDraw();
-            if(!isDraw){
+ 
+            checkWin();
+             if(!isGameOver){
 
-                checkWin();
+                checkDraw();
             }
             if(!isGameOver){
                 
